@@ -36,7 +36,7 @@ resource "linode_instance" "myc2-1" {
 	}
 
 	provisioner "file" {
-		source = ".htaccess"
+		source = "htaccess"
 		destination = "/root/.htaccess"
 	}
 
@@ -52,17 +52,13 @@ resource "linode_instance" "myc2-1" {
 				"sudo apt-get install apache2 -y",
 				"sudo a2enmod rewrite proxy proxy_http ssl proxy_connect",
 				"sudo a2ensite default-ssl.conf",
+				"sudo apt-get install -y software-properties-common",
+                                "sudo add-apt-repository universe",
+                                "sudo apt install -y certbot && sudo apt install -y python3-certbot-apache",
+                                "sudo certbot -n -d www.domainhere,domainhere --apache --register-unsafely-without-email --agree-tos --no-redirect",
 				"sudo mv /root/000-default.conf /etc/apache2/sites-available/000-default.conf",
 				"sudo mv /root/apache2.conf /etc/apache2/apache2.conf",
 				"sudo mv /root/.htaccess /var/www/html/.htaccess",
-				"sudo systemctl restart apache2",
-				"sudo apt-get install -y software-properties-common",
-				"sudo add-apt-repository universe",
-				"sudo apt install -y certbot && sudo apt install -y python3-certbot-apache",
-				"sudo certbot -d www.domainhere,domainhere --apache --register-unsafely-without-email --agree-tos --no-redirect",
-				"sudo sed -i -e 's/#//' /var/www/html/.htaccess",
-				"sudo sed -i -e 's/#---//' /etc/apache2/sites-available/000-default.conf",
-				"sudo sed -i -e 's/:80/:443/g' /etc/apache2/sites-available/000-default.conf",
 				"sudo ufw deny 80",
 				"sudo service apache2 restart",
 				"sudo apt-get install git",

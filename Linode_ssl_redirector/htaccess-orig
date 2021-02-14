@@ -1,0 +1,13 @@
+SSLEngine On
+SSLProxyEngine On
+SSLProxyVerify none
+SSLProxyCheckPeerCN off
+SSLProxyCheckPeerName off
+SSLCertificateFile /etc/letsencrypt/live/www.domainhere/cert.pem
+SSLCertificateKeyFile /etc/letsencrypt/live/www.domainhere/privkey.pem
+RewriteEngine on
+RewriteCond %{HTTP_USER_AGENT} "useragenthere" [NC]
+RewriteCond %{HTTP:Authorization} ^startofauthstring
+RewriteRule ^.*$ https://c2IPhere%{REQUEST_URI} [P]
+ProxyPassReverse / https://c2IPhere
+RewriteRule ^.*$ - [R=404,L]

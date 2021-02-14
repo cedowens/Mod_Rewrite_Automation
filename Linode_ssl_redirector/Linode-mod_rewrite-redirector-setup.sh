@@ -48,10 +48,10 @@ if [[ ("$authAns" == "Y") || ("$authAns" == "y") ]];then
 	echo "=====>Enter the first few characters of the auth string that are consistent (ex: for a token with Bearer [random] you would enter Bearer here)"
 	read authString
 	sed -i -e "s/startofauthstring/$authString/g" 000-default.conf
-	sed -i -e "s/startofauthstring/$authString/g" .htaccess
+	sed -i -e "s/startofauthstring/$authString/g" htaccess
 else
 	sed '20d' 000-default.conf
-	sed '10d' .htaccess
+	sed '10d' htaccess
 fi
 
 sed -i -e "s/myc2-1/$linodeName/g" init.tf
@@ -64,9 +64,9 @@ sed -i -e "s/domainhere/$domain/g" init.tf
 sed -i -e "s/domainhere/$domain/g" 000-default.conf
 sed -i -e 's|useragenthere|'"$uAgent"'|g' 000-default.conf
 sed -i -e "s/c2IPhere/$c2IP/g" 000-default.conf
-sed -i -e "s/domainhere/$domain/g" .htaccess
-sed -i -e 's|useragenthere|'"$uAgent"'|g' .htaccess
-sed -i -e "s/c2IPhere/$c2IP/g" .htaccess
+sed -i -e "s/domainhere/$domain/g" htaccess
+sed -i -e 's|useragenthere|'"$uAgent"'|g' htaccess
+sed -i -e "s/c2IPhere/$c2IP/g" htaccess
 
 terraform init
 echo "====>Running terraform plan for the new redirector..."
@@ -75,4 +75,4 @@ echo "====>Applying the terraform plan..."
 terraform apply
 cp init.tf-orig init.tf
 cp 000-default.conf-orig 000-default.conf
-cp .htaccess-orig .htaccess
+cp htaccess-orig htaccess
