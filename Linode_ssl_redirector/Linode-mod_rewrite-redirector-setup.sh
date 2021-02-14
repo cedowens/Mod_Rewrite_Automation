@@ -50,8 +50,8 @@ if [[ ("$authAns" == "Y") || ("$authAns" == "y") ]];then
 	sed -i -e "s/startofauthstring/$authString/g" 000-default.conf
 	sed -i -e "s/startofauthstring/$authString/g" htaccess
 else
-	sed '20d' 000-default.conf
-	sed '10d' htaccess
+	sed -i -e '20d' 000-default.conf
+	sed -i -e '10d' htaccess
 fi
 
 sed -i -e "s/myc2-1/$linodeName/g" init.tf
