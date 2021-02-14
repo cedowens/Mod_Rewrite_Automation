@@ -51,3 +51,4 @@ The bash scripts above take the following inputs:
 
 Bash will then perform all of the variable replacements in the local init.tf, htaccess, and 000-default.conf files and then kick off a terraform plan and apply. Once you agree to the apply then terraform will stand up the Redirector in Linode. If you are using the **Linode_ssl_redirector/Linode-mod_rewrite-redirector-setup.sh** terraform will also install and run certbot to take care of letsencrypt certs for the domain you provided. 
 
+#### 2. DIGITAL OCEAN REDIRECTOR SCRIPTS:
