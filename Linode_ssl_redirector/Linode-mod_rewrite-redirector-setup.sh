@@ -41,7 +41,7 @@ echo "=====>Enter the domain name for your redirector. AFTER THE SCRIPT RUNS, BE
 read domain
 echo "=====>Enter the user agent string that you want the redirector to use to allow access to your back end C2 (i.e., the unique user agent in your C2 agent)"
 read uAgent
-echo "=====>Do you have an authoriztion token (ex: bearer token) that you want to use for redirecting? (Y/N)"
+echo "=====>Do you have an authorization token (ex: bearer token) that you want to use for redirecting? (Y/N)"
 read authAns
 
 if [[ ("$authAns" == "Y") || ("$authAns" == "y") ]];then
