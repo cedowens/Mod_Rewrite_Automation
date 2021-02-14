@@ -1,0 +1,6 @@
+RewriteEngine on
+RewriteCond %{HTTP_USER_AGENT} "useragenthere" [NC]
+RewriteCond %{HTTP:Authorization} ^startofauthstring
+RewriteRule ^.*$ http://c2IPhere%{REQUEST_URI} [P]
+ProxyPassReverse / http://c2IPhere
+RewriteRule ^.*$ - [R=404,L]
