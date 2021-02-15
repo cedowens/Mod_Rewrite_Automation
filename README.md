@@ -23,9 +23,9 @@ These bash and terraform scripts were built to be run on either Linux or macOS h
 
 > ./[bash_script_you_are_running]
 
-### Info on the types of bash scripts include
+## Info on the types of bash scripts include
 
-#### 1. LINODE REDIRECTOR SCRIPTS:
+### 1. LINODE REDIRECTOR SCRIPTS:
 
 - Linode_ssl_redirector/Linode-mod_rewrite-redirector-setup.sh (stands up an ssl redirector using mod_rewrite on an Ubuntu Linode nanode 1GB host)
 
@@ -55,7 +55,7 @@ The bash scripts above take the following inputs:
 
 Bash will then perform all of the variable replacements in the local init.tf, htaccess, and 000-default.conf files and then kick off a terraform plan and apply. Once you agree to the apply then terraform will stand up the Redirector in Linode. If you are using the **Linode_ssl_redirector/Linode-mod_rewrite-redirector-setup.sh** terraform will also install and run certbot to take care of letsencrypt certs for the domain you provided. 
 
-#### 2. DIGITAL OCEAN REDIRECTOR SCRIPTS:
+### 2. DIGITAL OCEAN REDIRECTOR SCRIPTS:
 - Linode_ssl_redirector/DO-mod_rewrite-redirector-setup.sh (stands up an ssl redirector using mod_rewrite on an Ubuntu DO droplet)
 
 - Linode_http_redirector/DO-mod_rewrite-redirector-setup.sh (stands up a http (non-ssl) redirector using mod_rewrite on an Ubuntu DO droplet)
