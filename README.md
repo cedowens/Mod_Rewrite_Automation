@@ -1,4 +1,7 @@
 # Apache Mod_Rewrite Terrafrom Automation
+
+![Image](flow.png)
+
 Bash scripts that take variables from the user and then call terraform scripts to automate standing up apache2 with mod_rewrite in front of C2 servers. Right now, this repo supports standing up redirectors in Linode or Digital Ocean, and I have different scripts for standing up http redirectors versus https redirectors. Since the mod_rewrite redirector setup scripts use a user agent value and optionally a bearer token, these redirectors are not C2 dependent and can work for any C2 that uses http or https.
 
 These bash and terraform scripts were built to be run on either Linux or macOS hosts, and first check to see if you have terraform installed. If terraform is not installed, the script will attempt to install it for you before proceeding.
