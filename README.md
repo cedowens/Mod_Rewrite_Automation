@@ -14,6 +14,8 @@ These bash and terraform scripts were built to be run on either Linux or macOS h
 
 - You will need to generate a public/private key pair locally for use (ex: Linode will put the public key on the host you stand up and use your private key to ssh in)
 
+- For Digital Ocean, you will need to upload the public key that you plan to use to your DO to your DO account.
+
 - For standing up redirectors in Linode, you will need a Linode Personal Access Token (can be generated under the "API Tokens" link under your profile in the web console. For standing up redirectors in Digital Ocean, you will need a Digital Ocean API key (can be done via the web admin console page).
 
 - You will also need a domain name for the redirector you set up. Once the redirector is stood up you will need to login to the provider and update the DNS records to point to the newly stood up IP address.
