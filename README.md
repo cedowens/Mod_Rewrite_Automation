@@ -46,7 +46,7 @@ The bash scripts above take the following inputs:
 
 - The local path to your ssh public key
 
-- The local path to your ssh private key
+- The local path to your ssh private key **(note: the script currently works with ssh keys that are not password protected; I plan to update it soon to handle password protected ssh keys)**
 
 - Domain name for your redirector (this will be used in the Apache config files as well as by certbot to install ssl certificates for your domain; if using the ssl script this will also be used by letsencrypt to set up the ssl certs). As Linode spins the host up, I usually go ahead and change the IP address in my domain provider to the IP of the recently spun up redirector. The script will need records for both www.[domain] and [domain] so be sure to set DNS A records for both of those.
 
@@ -75,7 +75,7 @@ The bash scripts above take the following inputs:
 
 - The name of the ssh public key you have uploaded into DO (you will need to do this if you have not already done so)
 
-- The local path to your ssh private key
+- The local path to your ssh private key **(note: the script currently works with ssh keys that are not password protected; I plan to update it soon to handle password protected ssh keys)**
 
 - Domain name for your redirector (this will be used in the Apache config files as well as by certbot to install ssl certificates for your domain; if using the ssl script this will also be used by letsencrypt to set up the ssl certs). As DO spins the host up, I usually go ahead and change the IP address in my domain provider to the IP of the recently spun up redirector. The script will need records for both www.[domain] and [domain] so be sure to set DNS A records for both of those.
 
