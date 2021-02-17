@@ -48,7 +48,7 @@ The bash scripts above take the following inputs:
 
 - The local path to your ssh private key
 
-- Domain name for your redirector (this will be used in the Apache config files as well as by certbot to install ssl certificates for your domain; if using the ssl script this will also be used by letsencrypt to set up the ssl certs). As Linode spins the host up, I usually go ahead and change the IP address in my domain provider to the IP of the recently spun up redirector.
+- Domain name for your redirector (this will be used in the Apache config files as well as by certbot to install ssl certificates for your domain; if using the ssl script this will also be used by letsencrypt to set up the ssl certs). As Linode spins the host up, I usually go ahead and change the IP address in my domain provider to the IP of the recently spun up redirector. The script will need records for both www.[domain] and [domain] so be sure to set DNS A records for both of those.
 
 - User Agent (This is the regex value for a user-agent string that you want to specify which will be added into the .htaccess and 000-default.conf files. I have copies of these locally with placeholder values, and the bash script replaces those placeholder values with what the user enters and later terraform remotely copies these files over to the newly stood up redirector). ***IT IS IMPORTANT TO MAKE SURE THAT YOUR REGEX WORKS HERE. I HAVE INCLUDED SOME EXAMPLES BELOW***
 
@@ -77,7 +77,7 @@ The bash scripts above take the following inputs:
 
 - The local path to your ssh private key
 
-- Domain name for your redirector (this will be used in the Apache config files as well as by certbot to install ssl certificates for your domain; if using the ssl script this will also be used by letsencrypt to set up the ssl certs). As DO spins the host up, I usually go ahead and change the IP address in my domain provider to the IP of the recently spun up redirector.
+- Domain name for your redirector (this will be used in the Apache config files as well as by certbot to install ssl certificates for your domain; if using the ssl script this will also be used by letsencrypt to set up the ssl certs). As DO spins the host up, I usually go ahead and change the IP address in my domain provider to the IP of the recently spun up redirector. The script will need records for both www.[domain] and [domain] so be sure to set DNS A records for both of those.
 
 - User Agent (This is the regex value for a user-agent string that you want to specify which will be added into the .htaccess and 000-default.conf files. I have copies of these locally with placeholder values, and the bash script replaces those placeholder values with what the user enters and later terraform remotely copies these files over to the newly stood up redirector). ***IT IS IMPORTANT TO MAKE SURE THAT YOUR REGEX WORKS HERE. I HAVE INCLUDED SOME EXAMPLES BELOW***. If you stand everything up and the redirector is not working as expected, it may likely be that the regex entered may not be correct. You can then ssh into the redirector host and adjust the regex until you get it working if you have that issue.
 
